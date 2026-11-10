@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Заголовок вкладки и описание для поисковиков -->
+  <title>Alena Pavlenko — Creative Portfolio</title>
+  <meta name="description" content="Личное креативное портфолио: фотография, видео и визуальный контент. Food &amp; lifestyle, предметная съёмка, люди.">
+
+  <!-- Как ссылка выглядит при отправке в мессенджерах.
+       После публикации замените og:url и og:image на полные адреса (см. README). -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Alena Pavlenko — Creative Portfolio">
+  <meta property="og:description" content="Photo · Video · Visual Content">
+  <meta property="og:image" content="assets/images/og-cover.jpg">
+  <meta property="og:locale" content="ru_RU">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" content="#FFFFFF">
+
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="assets/fonts/cormorant-garamond-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Помечаем, что JavaScript работает: без него анимации появления не включаются -->
+  <script>document.documentElement.classList.add('js');</script>
+</head>
+<body>
+
+  <a class="skip-link" href="#portfolio">Перейти к работам</a>
+
+  <!-- ============ ШАПКА И НАВИГАЦИЯ ============ -->
+  <header class="header" id="header">
+    <a class="header__name" href="#top" lang="en">Alena Pavlenko</a>
+
+    <button class="header__toggle" id="menuToggle" type="button" aria-expanded="false" aria-controls="nav">Меню</button>
+
+    <nav class="nav" id="nav" aria-label="Разделы сайта">
+      <ul class="nav__list">
+        <li><a href="#portfolio"><span class="nav__num">01</span>Портфолио</a></li>
+        <li><a href="#video"><span class="nav__num">02</span>Видео</a></li>
+        <li><a href="#about"><span class="nav__num">03</span>Обо мне</a></li>
+        <li><a href="#skills"><span class="nav__num">04</span>Что я умею</a></li>
+        <li><a href="#contacts"><span class="nav__num">05</span>Контакты</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="top">
+
+    <!-- ============ ПЕРВЫЙ ЭКРАН ============ -->
+    <section class="hero" aria-label="Приветствие">
+      <div class="hero__text">
+        <p class="label hero__kicker reveal">Creative Portfolio</p>
+
+        <h1 class="hero__title reveal" lang="en">
+          <span>Alena</span>
+          <span class="hero__title-second">Pavlenko</span>
+        </h1>
+
+        <p class="label hero__fields reveal">Photo <i>·</i> Video <i>·</i> Visual Content</p>
+
+        <p class="hero__lead reveal">
+          Создаю визуальный контент, который передаёт настроение, рассказывает истории
+          и&nbsp;помогает увидеть красоту в&nbsp;деталях.
+        </p>
+
+        <a class="button reveal" href="#portfolio">Смотреть работы</a>
+      </div>
+
+      <!-- Две фотографии первого экрана.
+           Положите файлы в assets/images/hero/ с этими именами — или поменяйте имена здесь. -->
+      <div class="hero__visual reveal">
+        <figure class="frame hero__main" data-src="assets/images/hero/hero-main.jpg" data-hint="вертикальное, 4:5">
+          <img src="assets/images/hero/hero-main.jpg" alt="Пара: молодой человек наклонился к девушке со светлыми волосами" fetchpriority="high">
+        </figure>
+        <figure class="frame hero__side" data-src="assets/images/hero/hero-detail.jpg" data-hint="вертикальное, 3:4">
+          <img src="assets/images/hero/hero-detail.jpg" alt="Свеча в чёрной банке на ладони у окна">
+        </figure>
+      </div>
+    </section>
+
+    <!-- ============ 01 · ПОРТФОЛИО ============ -->
+    <section class="section" id="portfolio">
+      <header class="section__head reveal">
+        <span class="label section__num">01</span>
+        <h2 class="section__title">Портфолио</h2>
+      </header>
+      <!-- Кнопки фильтра и сетка работ собираются автоматически из data.js -->
+      <div class="filters reveal" id="filters" role="group" aria-label="Фильтр работ по категориям"></div>
+      <div class="gallery" id="gallery"></div>
+      <button class="button gallery__more" id="galleryMore" type="button" hidden>Показать ещё</button>
+      <p class="stub" id="galleryEmpty" hidden>В этой категории пока нет работ.</p>
+      <noscript><p class="stub">Для просмотра галереи включите JavaScript в браузере.</p></noscript>
+    </section>
+
+    <!-- ============ 02 · ВИДЕО ============ -->
+    <section class="section section--alt" id="video">
+      <header class="section__head reveal">
+        <span class="label section__num">02</span>
+        <h2 class="section__title">Видео</h2>
+      </header>
+      <!-- Видео собираются автоматически из data.js (записи с type: 'video') -->
+      <div class="videos" id="videos"></div>
+    </section>
+
+    <!-- ============ 03 · ОБО МНЕ ============ -->
+    <section class="section" id="about">
+      <header class="section__head reveal">
+        <span class="label section__num">03</span>
+        <h2 class="section__title">Обо мне</h2>
+      </header>
+      <div class="about">
+        <!-- Портрет: положите файл assets/images/about/portrait.jpg -->
+        <figure class="frame about__photo reveal" data-src="assets/images/about/portrait.jpg" data-hint="вертикальное, 4:5">
+          <img src="assets/images/about/portrait.jpg" alt="Портрет Алёны Павленко" loading="lazy">
+        </figure>
+
+        <div class="about__text reveal">
+          <p class="about__name">Алёна Павленко</p>
+          <p class="about__lead">
+            Мне нравится замечать красоту в&nbsp;деталях, находить интересные ракурсы и&nbsp;создавать
+            визуальные истории, которые передают настроение и&nbsp;вызывают эмоции.
+          </p>
+          <p>
+            Я увлекаюсь фотографией, съёмкой и&nbsp;монтажом видео, работаю с&nbsp;визуальными концепциями
+            и&nbsp;контентом.
+          </p>
+          <p>
+            У меня также есть опыт в&nbsp;организации рабочих процессов и&nbsp;координации проектов.
+            Я люблю структурировать, находить решения, делать сложные задачи понятнее и&nbsp;превращать
+            идеи в&nbsp;конкретные результаты.
+          </p>
+          <p>
+            Сейчас мне особенно интересно развиваться на&nbsp;стыке визуального контента, креатива
+            и&nbsp;организации контент-процессов&nbsp;— создавать, экспериментировать и&nbsp;участвовать
+            в&nbsp;проектах, в&nbsp;которых есть место хорошим идеям.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 04 · ЧТО Я УМЕЮ ============ -->
+    <section class="section section--alt" id="skills">
+      <header class="section__head reveal">
+        <span class="label section__num">04</span>
+        <h2 class="section__title">Что я умею</h2>
+      </header>
+      <div class="skills">
+        <article class="skill reveal">
+          <span class="label">01</span>
+          <h3 class="skill__title">Съёмка</h3>
+          <p>Предметная, food и&nbsp;lifestyle-фотография, работа с&nbsp;композицией, светом и&nbsp;деталями.</p>
+        </article>
+        <article class="skill reveal">
+          <span class="label">02</span>
+          <h3 class="skill__title">Видео</h3>
+          <p>Съёмка, монтаж, короткие видеоформаты, работа с&nbsp;визуальным ритмом.</p>
+        </article>
+        <article class="skill reveal">
+          <span class="label">03</span>
+          <h3 class="skill__title">Визуальные концепции</h3>
+          <p>Поиск идеи, подбор визуального направления, стилизация и&nbsp;оформление контента.</p>
+        </article>
+        <article class="skill reveal">
+          <span class="label">04</span>
+          <h3 class="skill__title">Организация</h3>
+          <p>Структурирование задач, координация работы над проектами, организация контентных процессов.</p>
+        </article>
+      </div>
+
+      <!-- Инструменты: чтобы добавить или убрать, поправьте строки <li> -->
+      <div class="tools reveal">
+        <span class="label tools__label">Инструменты</span>
+        <ul class="tools__list">
+          <li>CapCut</li>
+          <li>Canva</li>
+          <li>Figma</li>
+          <li>InShot</li>
+          <li>Lightroom</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============ 05 · КОНТАКТЫ ============ -->
+    <section class="section" id="contacts">
+      <header class="section__head reveal">
+        <span class="label section__num">05</span>
+        <h2 class="section__title">Будем на&nbsp;связи</h2>
+      </header>
+      <div class="contacts">
+        <p class="contacts__lead reveal">
+          Открыта к&nbsp;интересным проектам, сотрудничеству и&nbsp;новым творческим задачам.
+        </p>
+
+        <!-- КОНТАКТЫ: чтобы изменить, поправьте адрес в href и текст между <a> и </a>.
+             Чтобы добавить резюме, положите файл в assets/resume/ и скопируйте сюда ещё один <li>
+             со ссылкой href="assets/resume/resume.pdf". -->
+        <ul class="contacts__list reveal">
+          <li>
+            <span class="label">Почта</span>
+            <a href="mailto:avezhlivtseva@mail.ru">avezhlivtseva@mail.ru</a>
+          </li>
+          <li>
+            <span class="label">Telegram</span>
+            <a href="https://t.me/alenademiel" target="_blank" rel="noopener">@alenademiel</a>
+          </li>
+          <li>
+            <span class="label">Instagram</span>
+            <a href="https://www.instagram.com/alenademiel/" target="_blank" rel="noopener">@alenademiel</a>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <span class="label">© <span id="year">2026</span> Alena Pavlenko</span>
+    <a class="label footer__up" href="#top">Наверх ↑</a>
+  </footer>
+
+  <!-- ============ ПОЛНОЭКРАННЫЙ ПРОСМОТР ============ -->
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Просмотр работы" aria-hidden="true">
+    <div class="lightbox__bar">
+      <span class="label" id="lbCounter">01 / 01</span>
+      <button class="lightbox__close" id="lbClose" type="button">Закрыть</button>
+    </div>
+    <div class="lightbox__stage" id="lbStage">
+      <img id="lbImage" src="" alt="">
+      <p class="lightbox__missing" id="lbMissing" hidden></p>
+    </div>
+    <div class="lightbox__foot">
+      <h3 class="lightbox__title" id="lbTitle"></h3>
+      <p class="label" id="lbMeta"></p>
+      <p class="lightbox__desc" id="lbDesc"></p>
+    </div>
+    <button class="lightbox__nav lightbox__nav--prev" id="lbPrev" type="button" aria-label="Предыдущая работа">←</button>
+    <button class="lightbox__nav lightbox__nav--next" id="lbNext" type="button" aria-label="Следующая работа">→</button>
+  </div>
+
+  <script src="data.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
